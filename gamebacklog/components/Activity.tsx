@@ -31,7 +31,7 @@ export function Activity() {
         Recent Activity
       </header>
     </div>
-<div className="w-full max-w-6xl mx-auto px-4">
+<div className="w-full max-w-fit mx-auto px-56">
   <Carousel
     opts={{
       align: "start",
@@ -44,16 +44,24 @@ export function Activity() {
         <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/6">
             <Card className="border-none shadow-lg rounded-lg overflow-hidden drop-shadow-xl bg-slate-100 m-1.5">
               <CardContent className="px-2.5 pt-2.5 pb-1">
-                <Image
-                  src={"/images/gameCover.jpg"}
-                  width={1000}
-                  height={2000}
-                  alt={item.title}
-                  className="object-cover w-full h-full rounded"
-                />
+                <div className="group relative">
+                  <Image
+                    src={"/images/gameCover.jpg"}
+                    width={1000}
+                    height={2000}
+                    alt={item.title}
+                    className="object-cover rounded"
+                  />
+                  <div className="hidden group-hover:inline absolute top-0 right-0 w-2/5 h-full object-contain">
+                    <div className="bg-purple-500 h-1/4 opacity-85">Add</div>
+                    <div className="bg-red-500 h-1/4 opacity-85">Drop</div>
+                    <div className="bg-green-500 h-1/4 opacity-85">Want</div>
+                    <div className="bg-blue-500 h-1/4 opacity-85">Still</div>
+                  </div>
+                </div>
                 </CardContent>
                 <CardFooter className="pb-1 text-left">
-                  <h2 className="text-sm text-base/4 font-semibold">{item.title}</h2>
+                  <h2 className="text-md text-base/4 font-semibold">{item.title}</h2>
                 </CardFooter>
             </Card>
         </CarouselItem>
