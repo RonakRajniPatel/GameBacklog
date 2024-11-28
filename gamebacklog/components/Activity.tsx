@@ -31,13 +31,13 @@ export function Activity() {
         Recent Activity
       </header>
     </div>
-<div className="w-full max-w-fit mx-auto px-56">
+<div className="w-full max-w-fit mx-auto px-56 h-96">
   <Carousel
     opts={{
       align: "start",
       loop: true,
     }}
-    className="w-full"
+    className="w-full h-full"
   >
     <CarouselContent className="-ml-2 md:-ml-4">
       {items.map((item, index) => (
@@ -53,7 +53,7 @@ export function Activity() {
                     className="object-cover rounded"
                   />
                   <div className="hidden group-hover:inline absolute top-0 right-0 w-2/5 h-full object-contain">
-                    <div className="bg-purple-500 h-1/4 opacity-85">Add</div>
+                    <div className="bg-purple-500 h-1/4 opacity-85">Played</div>
                     <div className="bg-red-500 h-1/4 opacity-85">Drop</div>
                     <div className="bg-green-500 h-1/4 opacity-85">Want</div>
                     <div className="bg-blue-500 h-1/4 opacity-85">Still</div>
@@ -67,8 +67,8 @@ export function Activity() {
         </CarouselItem>
       ))}
     </CarouselContent>
-    <CarouselPrevious/>
-    <CarouselNext/>
+    <CarouselPrevious className="top-2/3"/>
+    <CarouselNext className="top-2/3"/>
   </Carousel>
   </div>
 </>
