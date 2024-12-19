@@ -37,7 +37,7 @@ export function Activity() {
           align: "start",
           loop: true,
         }}
-        className="w-full h-full "
+        className="w-full h-full pb-12"
       >
         <CarouselContent className="">
           {items.map((item, index) => (
