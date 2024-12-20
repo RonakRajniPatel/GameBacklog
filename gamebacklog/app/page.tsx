@@ -1,11 +1,11 @@
 import { Activity } from "@/components/Activity";
+import { Featured } from "@/components/Featured";
 
 export default function Home() {
   return (
     <div>
-      <div className="">
-        <Activity/>
-      </div>
+      <Featured/>
+      <Activity/>
       <Activity/>
     </div>
   );
