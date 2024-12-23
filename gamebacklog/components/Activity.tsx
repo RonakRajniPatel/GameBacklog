@@ -61,7 +61,7 @@ export function Activity() {
                     </div>
                     </CardContent>
                     <CardFooter className="pb-1 text-left">
-                      <h2 className="text-md text-base/4 font-semibold">{item.title}</h2>
+                        <h2 className="text-sm font-semibold">{item.title}</h2>
                     </CardFooter>
                 </Card>
             </CarouselItem>
