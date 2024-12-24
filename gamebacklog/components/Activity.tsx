@@ -60,8 +60,9 @@ export function Activity() {
                       </div>
                     </div>
                     </CardContent>
-                    <CardFooter className="pb-1 text-left">
-                        <h2 className="text-sm font-semibold">{item.title}</h2>
+                    <CardFooter className="pb-1 text-sm font-semibold px-1.5">
+                        {item.title}
+                        {/* <h2 className="text-sm font-semibold bg-red-500">{item.title}</h2> */}
                     </CardFooter>
                 </Card>
             </CarouselItem>
