@@ -35,7 +35,7 @@ export function TrackedGame() {
           width={1000}
           height={1363}
           alt={game.title}
-          className="rounded p-6 pb-0 md:hidden object-scale-down"
+          className="rounded p-3 pb-0 md:hidden object-scale-down"
         />
         <div className="p-6 pb-0">
           <div className="hidden md:block group relative">
