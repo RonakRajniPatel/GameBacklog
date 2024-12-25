@@ -24,6 +24,7 @@ export function Activity() {
       <div className="w-full">
         <header className="text-4xl font-bold ml-28">Recent Activity</header>
       </div>
+
       <div className="w-full max-w-fit mx-auto px-56">
         <Carousel
           opts={{
@@ -64,7 +65,6 @@ export function Activity() {
                   </CardContent>
                   <CardFooter className="pb-1 text-sm font-semibold px-1.5">
                     {item.title}
-                    {/* <h2 className="text-sm font-semibold bg-red-500">{item.title}</h2> */}
                   </CardFooter>
                 </Card>
               </CarouselItem>
