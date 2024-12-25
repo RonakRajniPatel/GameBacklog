@@ -23,9 +23,9 @@ export function Navbar() {
 
   const NavLinks = () => (
     <>
-      <Button variant="ghost"><Link href="#" className="text-gray-600 hover:text-gray-900">Browse</Link></Button>
+      <Button variant="ghost"><Link href="/browse" className="text-gray-600 hover:text-gray-900">Browse</Link></Button>
       <Button variant="ghost"><Link href="#" className="text-gray-600 hover:text-gray-900">Community</Link></Button>
-      <Button variant="ghost"><Link href="#" className="text-gray-600 hover:text-gray-900">Backlog</Link></Button>
+      <Button variant="ghost"><Link href="/backlog" className="text-gray-600 hover:text-gray-900">Backlog</Link></Button>
     </>
   )
 
@@ -64,7 +64,7 @@ export function Navbar() {
         <Button><Link href="#">Register</Link></Button>
       </div>
 
-      {/* Mobile Design */}
+      {/* Desktop Design */}
       <div className="md:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>

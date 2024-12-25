@@ -13,7 +13,7 @@ import Image from "next/image"
 
 export function Featured() {
   const items = Array(12).fill({
-    title: "The Legend of Zelda Breath of the Wild",
+    title: "The Legend of Zelda: Breath of the Wild",
     image: "/placeholder.svg?height=300&width=200",
   })
   return (
