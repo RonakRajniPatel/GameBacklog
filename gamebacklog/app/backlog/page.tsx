@@ -6,6 +6,7 @@ export default function Home() {
     <div className="flex justify-center min-h-screen">
       <div className="flex flex-col items-center w-full px-4 2xl:max-w-screen-2xl">
         <TrackedGame />
+        <TrackedGame />
       </div>
     </div>
   );
