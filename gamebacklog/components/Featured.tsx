@@ -10,6 +10,7 @@ import {
 import * as React from "react";
 
 import Image from "next/image";
+import HoverImage from "./ui/hoverimage";
 
 export function Featured() {
   const items = Array(12).fill({
@@ -35,31 +36,11 @@ export function Featured() {
                   </CardTitle>
                   <CardContent className="flex aspect-rectangle items-center justify-center p-3 pt-1 md:pt-5">
                     <div className="w-full h-full flex flex-row">
-                      <div className="group relative w-full md:w-3/5">
-                        <Image
-                          src={"/images/featured.jpg"}
-                          width={1920}
-                          height={1080}
-                          alt={item.title}
-                          className="object-cover rounded"
-                        />
-                        <div className="hidden md:block">
-                          <div className="hidden group-hover:inline absolute top-0 right-0 w-1/5 h-full object-contain">
-                            <div className="bg-purple-500 h-1/4 opacity-85">
-                              Played
-                            </div>
-                            <div className="bg-red-500 h-1/4 opacity-85">
-                              Drop
-                            </div>
-                            <div className="bg-green-500 h-1/4 opacity-85">
-                              Want
-                            </div>
-                            <div className="bg-blue-500 h-1/4 opacity-85">
-                              Still
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <HoverImage
+                        src={"/images/featured.jpg"}
+                        alt={item.title}
+                        style={"featured"}
+                      />
                       <div className="hidden md:flex  w-2/5 place-content-center p-2 pt-3 text-center font-sans font-semibold">
                         <div>
                           <h1 className="text-2xl lg:text-4xl">
