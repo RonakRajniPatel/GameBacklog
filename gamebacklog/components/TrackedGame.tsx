@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import HoverImage from "./ui/hoverimage";
 import { Button } from "./ui/button";
 
 export function TrackedGame() {
@@ -38,21 +39,11 @@ export function TrackedGame() {
           className="rounded p-3 pb-0 md:hidden object-scale-down"
         />
         <div className="p-6 pb-0">
-          <div className="hidden md:block group relative">
-            <Image
-              src={"/images/gameCover.jpg"}
-              width={1000}
-              height={1363}
-              alt={game.title}
-              className="object-cover rounded"
-            />
-            <div className="hidden group-hover:inline absolute top-0 right-0 w-2/5 h-full object-contain">
-              <div className="bg-purple-500 h-1/4 opacity-85">Played</div>
-              <div className="bg-red-500 h-1/4 opacity-85">Drop</div>
-              <div className="bg-green-500 h-1/4 opacity-85">Want</div>
-              <div className="bg-blue-500 h-1/4 opacity-85">Still</div>
-            </div>
-          </div>
+          <HoverImage
+            src={"/images/gameCover.jpg"}
+            alt={game.title}
+            style="cover"
+          />
         </div>
       </div>
       <div className="flex flex-col w-9/12 md:w-5/6 h-full p-4 bg-red-500">
