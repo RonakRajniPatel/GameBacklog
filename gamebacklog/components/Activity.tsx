@@ -37,7 +37,7 @@ export function Activity() {
             {items.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="pl-2 md:pl-4 basis-1/3 lg:basis-1/6"
+                className="pl-2 md:pl-4 basis-2/6 lg:basis-1/6"
               >
                 <Card className="border-none shadow-lg rounded-lg overflow-hidden drop-shadow-xl bg-slate-100 m-1.5">
                   <CardContent className="px-2.5 pt-2.5 pb-1">
