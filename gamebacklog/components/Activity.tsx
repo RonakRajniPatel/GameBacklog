@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Image from "next/image";
-
+import HoverImage from "./ui/hoverimage";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 import {
@@ -41,31 +41,11 @@ export function Activity() {
               >
                 <Card className="border-none shadow-lg rounded-lg overflow-hidden drop-shadow-xl bg-slate-100 m-1.5">
                   <CardContent className="px-2.5 pt-2.5 pb-1">
-                    <div className="group relative">
-                      <Image
-                        src={"/images/gameCover.jpg"}
-                        width={500}
-                        height={1000}
-                        alt={item.title}
-                        className="object-cover rounded"
-                      />
-                      <div className="hidden md:block">
-                        <div className="hidden group-hover:inline absolute top-0 right-0 w-2/5 h-full object-contain">
-                          <div className="bg-purple-500 h-1/4 opacity-85">
-                            Played
-                          </div>
-                          <div className="bg-red-500 h-1/4 opacity-85">
-                            Drop
-                          </div>
-                          <div className="bg-green-500 h-1/4 opacity-85">
-                            Want
-                          </div>
-                          <div className="bg-blue-500 h-1/4 opacity-85">
-                            Still
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <HoverImage
+                      src={"/images/gameCover.jpg"}
+                      alt={item.title}
+                      style={"cover"}
+                    />
                   </CardContent>
                   <CardFooter className="pb-1 text-sm font-semibold px-1.5">
                     {item.title}
