@@ -112,6 +112,14 @@ export default function Home() {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+            <div className="bg-purple-500 md:hidden">
+              <Review
+                content="exceptional game with emergent gameplay. Groundbreaking and will be copied"
+                author="Ronak"
+                date="April 9th"
+                profile="/images/pfp.jpg"
+              />
+            </div>
           </div>
         </div>
       </div>
