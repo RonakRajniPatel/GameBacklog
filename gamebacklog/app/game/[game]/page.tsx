@@ -25,7 +25,7 @@ export default function Home() {
 
   const formattedDate = game.date_released.toISOString().split("T")[0];
   return (
-    <div className="flex min-h-screen max-w-fit justify-center overflow-y-auto">
+    <div className="flex min-h-dvh max-w-fit justify-center overflow-y-auto">
       <div
         className={`flex w-full flex-col items-center bg-red-500 px-2 md:gap-10`}
       >
@@ -46,10 +46,10 @@ export default function Home() {
             <div className="hidden md:block">
               <h2 className="pt-10 text-lg">Reviews</h2>
               <Review
-                content="good"
+                content="exceptional game with emergent gameplay. Groundbreaking and will be copied"
                 author="Ronak"
-                date="sometime"
-                profile="/images/profile.jpg"
+                date="April 9th"
+                profile="/images/pfp.jpg"
               />
             </div>
           </div>
