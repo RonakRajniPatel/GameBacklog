@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { Review } from "@/components/Review";
 import {
   Accordion,
   AccordionContent,
@@ -24,9 +25,9 @@ export default function Home() {
 
   const formattedDate = game.date_released.toISOString().split("T")[0];
   return (
-    <div className="flex min-h-screen justify-center">
+    <div className="flex min-h-screen max-w-fit justify-center overflow-y-auto">
       <div
-        className={`flex w-full flex-col items-center bg-red-500 px-2 md:gap-10 2xl:max-w-screen-2xl`}
+        className={`flex w-full flex-col items-center bg-red-500 px-2 md:gap-10`}
       >
         <div className="md:flex md:flex-row md:gap-x-10">
           <div className="bg-pink-500 md:w-8/12">
@@ -42,6 +43,15 @@ export default function Home() {
             <h2 className="hidden bg-yellow-500 p-5 text-lg font-normal md:block">
               {game.story}
             </h2>
+            <div className="hidden md:block">
+              <h2 className="pt-10 text-lg">Reviews</h2>
+              <Review
+                content="good"
+                author="Ronak"
+                date="sometime"
+                profile="/images/profile.jpg"
+              />
+            </div>
           </div>
           <div className="flex flex-col rounded-2xl px-10 md:order-first md:ml-5 md:w-3/12 md:bg-gray-200 md:p-5 md:pt-5">
             <div className="object-scale-down">

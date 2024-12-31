@@ -4,8 +4,8 @@ import "./styles.css";
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="flex flex-col items-center w-full px-4 2xl:max-w-screen-2xl">
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="flex w-full flex-col items-center px-4 2xl:max-w-screen-2xl">
         <Featured />
         <Activity />
         <Activity />
