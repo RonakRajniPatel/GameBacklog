@@ -50,6 +50,8 @@ export default function Home() {
                 author="Ronak"
                 date="April 9th"
                 profile="/images/pfp.jpg"
+                rating="5/5"
+                platform="switch"
               />
             </div>
           </div>
@@ -118,6 +120,8 @@ export default function Home() {
                 author="Ronak"
                 date="April 9th"
                 profile="/images/pfp.jpg"
+                rating="5/5"
+                platform="switch"
               />
             </div>
           </div>
