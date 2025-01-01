@@ -38,7 +38,10 @@ export function Review({
           </h2>
         </div>
       </div>
-      <div className="p-2">{content}</div>
+      <div className="flex flex-row">
+        <div className="h-full w-1/6 bg-yellow-500 md:w-1/12"></div>
+        <div className="w-5/6 p-2 md:w-11/12">{content}</div>
+      </div>
     </div>
   );
 }
