@@ -18,9 +18,9 @@ export function Featured() {
     image: "/placeholder.svg?height=300&width=200",
   });
   return (
-    <div className="w-full md:max-w-fit md:mx-auto md:px-32">
+    <div className="w-full md:mx-auto md:max-w-fit md:px-32">
       <Carousel
-        className="w-full mx-auto pb-10"
+        className="mx-auto w-full pb-10"
         opts={{
           align: "start",
           loop: true,
@@ -30,30 +30,17 @@ export function Featured() {
           {items.map((item, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
-                <Card>
-                  <CardTitle className="md:hidden text-lg font-semibold text-center flex items-center justify-center h-full pt-2">
+                <Card className="bg-blue-500">
+                  <CardTitle className="flex h-full items-center justify-center pt-2 text-center text-lg font-semibold">
                     {item.title}
                   </CardTitle>
-                  <CardContent className="flex aspect-rectangle items-center justify-center p-3 pt-1 md:pt-5">
-                    <div className="w-full h-full flex flex-row">
+                  <CardContent className="aspect-rectangle flex items-center justify-center p-3 pt-1 md:pt-5">
+                    <div className="flex h-full w-full flex-row">
                       <HoverImage
                         src={"/images/featured.jpg"}
                         alt={item.title}
                         style={"featured"}
                       />
-                      <div className="hidden md:flex  w-2/5 place-content-center p-2 pt-3 text-center font-sans font-semibold">
-                        <div>
-                          <h1 className="text-2xl lg:text-4xl">
-                            The Legend of Zelda: Breath of the Wild
-                          </h1>
-                          <h3 className="hidden xl:block font-normal text-2xl pt-20">
-                            Publisher: Nintendo <br />
-                            Developer: Nintendo EDP <br />
-                            Release Date: 03/27/2017 <br />
-                            User Ratings: 9.3 <br />
-                          </h3>
-                        </div>
-                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -61,7 +48,9 @@ export function Featured() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden md:block" />
+        <div>
+          <CarouselPrevious className="hidden md:block" />
+        </div>
         <CarouselNext className="hidden md:block" />
       </Carousel>
     </div>
