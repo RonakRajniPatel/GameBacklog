@@ -1,10 +1,10 @@
 package ronakrajnipatel.demo.repository;
 
-import ronakrajnipatel.demo.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import ronakrajnipatel.demo.model.App_User;
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Integer> {
+public interface UserRepo extends JpaRepository<App_User, Integer> {
 
 }

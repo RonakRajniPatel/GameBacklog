@@ -2,7 +2,7 @@ package ronakrajnipatel.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ronakrajnipatel.demo.model.User;
+import ronakrajnipatel.demo.model.App_User;
 import ronakrajnipatel.demo.repository.UserRepo;
 import java.util.List;
 
@@ -12,23 +12,23 @@ public class UserService {
     @Autowired
     UserRepo repo;
 
-    public List<User> getUsers() {
+    public List<App_User> getUsers() {
         return repo.findAll();
     }
 
-    public User getUserById(int userId) {
-        return repo.findById(userId).orElse(null);
+    public App_User getUserById(int App_UserId) {
+        return repo.findById(App_UserId).orElse(null);
     }
 
-    public void addUser(User user) {
-        repo.save(user);
+    public void addUser(App_User App_User) {
+        repo.save(App_User);
     }
 
-    public void updateUser(User user) {
-        repo.save(user);
+    public void updateUser(App_User App_User) {
+        repo.save(App_User);
     }
 
-    public void deleteUser(int userId) {
-        repo.deleteById(userId);
+    public void deleteUser(int App_UserId) {
+        repo.deleteById(App_UserId);
     }
 }

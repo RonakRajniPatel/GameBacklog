@@ -1,10 +1,8 @@
 package ronakrajnipatel.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import ronakrajnipatel.demo.model.User;
+import org.springframework.web.bind.annotation.*;
+import ronakrajnipatel.demo.model.App_User;
 import ronakrajnipatel.demo.service.UserService;
 
 import java.util.List;
@@ -16,7 +14,12 @@ public class UserController {
     UserService service;
 
     @GetMapping("/users")   // maps HTTP GET requests for "/"
-    public List<User> getUsers() {
+    public List<App_User> getUsers() {
         return service.getUsers();
+    }
+
+    @PutMapping("/user")
+    public void addUser(@RequestBody App_User appUser) {
+        service.addUser(appUser);
     }
 }
