@@ -16,8 +16,8 @@ public class UserService {
         return repo.findAll();
     }
 
-    public App_User getUserById(int App_UserId) {
-        return repo.findById(App_UserId).orElse(null);
+    public App_User getUserById(int app_userid) {
+        return repo.findById(app_userid).orElse(null);
     }
 
     public void addUser(App_User App_User) {
@@ -28,7 +28,7 @@ public class UserService {
         repo.save(App_User);
     }
 
-    public void deleteUser(int App_UserId) {
-        repo.deleteById(App_UserId);
+    public void deleteUser(int app_userid) {
+        repo.deleteById(app_userid);
     }
 }
