@@ -18,8 +18,23 @@ public class UserController {
         return service.getUsers();
     }
 
-    @PutMapping("/user")
+    @GetMapping("/{app_userid}")
+    public App_User getProductById(@PathVariable int app_userid) {
+        return service.getUserById(app_userid);
+    }
+
+    @PostMapping("/user")
     public void addUser(@RequestBody App_User appUser) {
         service.addUser(appUser);
+    }
+
+    @PutMapping("/user")
+    public void updateUser(@RequestBody App_User appUser) {
+        service.updateUser(appUser);
+    }
+
+    @DeleteMapping("/{app_userid}")
+    public void deleteUser(@PathVariable int app_userid) {
+        service.deleteUser(app_userid);
     }
 }

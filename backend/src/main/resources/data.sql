@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS App_Users;
 
 -- Create Users table
 CREATE TABLE App_Users (
-    App_UserId INT PRIMARY KEY,
+    App_UserId INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    Email VARCHAR(255) NOT NULL UNIQUE,
     First VARCHAR(255),
     Last VARCHAR(255),
     Birthday DATE,
@@ -45,8 +46,13 @@ CREATE TABLE Reviews (
     DateFinished DATE,
     Status INT,
     PRIMARY KEY (GameId, App_UserId),
-    FOREIGN KEY (GameId) REFERENCES Games(GameId),
-    FOREIGN KEY (App_UserId) REFERENCES App_Users(App_UserId)
+    CONSTRAINT FK_Reviews_Games
+        FOREIGN KEY (GameId)
+        REFERENCES Games(GameId),
+    CONSTRAINT FK_Reviews_App_Users
+        FOREIGN KEY (App_UserId)
+        REFERENCES App_Users(App_UserId)
+        ON DELETE CASCADE
 );
 
 ------------------------------------------------------------------
@@ -54,17 +60,17 @@ CREATE TABLE Reviews (
 ------------------------------------------------------------------
 
 -- Insert 10 Users
-INSERT INTO App_Users (App_UserId, First, Last, Birthday, Country, Age, Location) VALUES
-  (1, 'Alice', 'Smith', '1990-01-15', 'USA', 33, 'New York'),
-  (2, 'Bob', 'Johnson', '1985-03-22', 'USA', 38, 'Los Angeles'),
-  (3, 'Charlie', 'Williams', '1992-07-10', 'USA', 31, 'Chicago'),
-  (4, 'David', 'Brown', '1988-11-05', 'USA', 35, 'Houston'),
-  (5, 'Emma', 'Jones', '1995-02-28', 'USA', 28, 'Phoenix'),
-  (6, 'Frank', 'Miller', '1980-06-17', 'USA', 43, 'Philadelphia'),
-  (7, 'Grace', 'Davis', '1993-09-12', 'USA', 30, 'San Antonio'),
-  (8, 'Henry', 'Wilson', '1987-04-03', 'USA', 36, 'San Diego'),
-  (9, 'Isabella', 'Moore', '1991-12-25', 'USA', 32, 'Dallas'),
-  (10, 'Jack', 'Taylor', '1989-08-30', 'USA', 34, 'San Jose');
+INSERT INTO App_Users (Email, First, Last, Birthday, Country, Age, Location) VALUES
+  ('alice@example.com', 'Alice', 'Smith', '1990-01-15', 'USA', 33, 'New York'),
+  ('bob@example.com', 'Bob', 'Johnson', '1985-03-22', 'USA', 38, 'Los Angeles'),
+  ('charlie@example.com', 'Charlie', 'Williams', '1992-07-10', 'USA', 31, 'Chicago'),
+  ('david@example.com', 'David', 'Brown', '1988-11-05', 'USA', 35, 'Houston'),
+  ('emma@example.com', 'Emma', 'Jones', '1995-02-28', 'USA', 28, 'Phoenix'),
+  ('frank@example.com', 'Frank', 'Miller', '1980-06-17', 'USA', 43, 'Philadelphia'),
+  ('grace@example.com', 'Grace', 'Davis', '1993-09-12', 'USA', 30, 'San Antonio'),
+  ('henry@example.com', 'Henry', 'Wilson', '1987-04-03', 'USA', 36, 'San Diego'),
+  ('isabella@example.com', 'Isabella', 'Moore', '1991-12-25', 'USA', 32, 'Dallas'),
+  ('jack@example.com', 'Jack', 'Taylor', '1989-08-30', 'USA', 34, 'San Jose');
 
 -- Insert 10 Games
 INSERT INTO Games (GameId, Name, Genre, Summary, Storyline, Rating, RatingCount, Franchise, Publishers, Developers, GameEngine, CoverURL, Themes, Category, Keywords, GameModes) VALUES

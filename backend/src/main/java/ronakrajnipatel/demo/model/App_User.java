@@ -1,9 +1,6 @@
 package ronakrajnipatel.demo.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +17,9 @@ import java.util.Date;
 @Table(name = "App_Users")
 public class App_User  {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int app_userid;
+    private String email;
     private String first;
     private String last;
     private Date birthday;
