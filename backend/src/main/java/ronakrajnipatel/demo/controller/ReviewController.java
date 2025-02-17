@@ -18,6 +18,11 @@ public class ReviewController {
         return service.getReviews();
     }
 
+    @GetMapping("/{appuserid}")
+    public List<Review> getProductById(@PathVariable int appuserid) {
+        return service.getUserReviews(appuserid);
+    }
+
     @GetMapping("/{gameid}/{appuserid}")
     public Review getProductById(@PathVariable int gameid, @PathVariable int appuserid) {
         return service.getReviewById(gameid, appuserid);

@@ -18,7 +18,9 @@ public class ReviewService {
         return repo.findAll();
     }
 
-
+    public List<Review> getUserReviews(int appuserid) {
+        return repo.findByappuserid(appuserid);
+    }
     public Review getReviewById(int gameid, int appuserid) {
         return repo.findById(new ReviewId(gameid, appuserid)).orElse(null);
     }

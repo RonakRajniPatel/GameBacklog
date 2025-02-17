@@ -9,4 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ReviewRepo extends JpaRepository<Review, ReviewId> {
+    List<Review> findByappuserid(int appuserid);
 }
