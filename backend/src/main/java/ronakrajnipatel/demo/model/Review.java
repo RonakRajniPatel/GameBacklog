@@ -1,9 +1,6 @@
 package ronakrajnipatel.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +17,7 @@ public class Review {
     @Id
     private int gameid;
     @Id
-    private int app_userid;
+    private int appuserid;
     private String review;
     private int ratings;
     private float hours;
@@ -28,4 +25,3 @@ public class Review {
     private Date datefinished;
     private int status;
 }
-

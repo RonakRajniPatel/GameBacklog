@@ -11,11 +11,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "App_Users")
-public class App_User  {
+@Table(name = "appusers")
+public class AppUser  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int app_userid;
+    private int appuserid;
     private String email;
     private String first;
     private String last;

@@ -18,8 +18,9 @@ public class ReviewService {
         return repo.findAll();
     }
 
-    public Review getReviewById(int gameid, int app_userid) {
-        return repo.findById(new ReviewId(gameid, app_userid)).orElse(null);
+
+    public Review getReviewById(int gameid, int appuserid) {
+        return repo.findById(new ReviewId(gameid, appuserid)).orElse(null);
     }
 
     public void addReview(Review Review) {
@@ -30,7 +31,7 @@ public class ReviewService {
         repo.save(Review);
     }
 
-    public void deleteReview(int gameid, int app_userid) {
-        repo.deleteById(new ReviewId(gameid, app_userid));
+    public void deleteReview(int gameid, int appuserid) {
+        repo.deleteById(new ReviewId(gameid, appuserid));
     }
 }

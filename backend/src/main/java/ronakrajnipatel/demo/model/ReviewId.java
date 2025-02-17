@@ -9,10 +9,10 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class ReviewId implements Serializable {
     private int gameid;
-    private int app_userid;
+    private int appuserid;
 
-    public ReviewId(int gameid, int app_userid) {
+    public ReviewId(int gameid, int appuserid) {
         this.gameid = gameid;
-        this.app_userid = app_userid;
+        this.appuserid = appuserid;
     }
 }

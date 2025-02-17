@@ -1,11 +1,12 @@
 -- Drop tables if they exist (order matters because of foreign keys)
 DROP TABLE IF EXISTS Reviews;
 DROP TABLE IF EXISTS Games;
+DROP TABLE IF EXISTS AppUsers;
 DROP TABLE IF EXISTS App_Users;
 
 -- Create Users table
-CREATE TABLE App_Users (
-    App_UserId INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+CREATE TABLE AppUsers (
+    AppUserId INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     Email VARCHAR(255) NOT NULL UNIQUE,
     First VARCHAR(255),
     Last VARCHAR(255),
@@ -39,20 +40,20 @@ CREATE TABLE Games (
 -- Create Reviews table with composite primary key & foreign keys
 CREATE TABLE Reviews (
     GameId INT,
-    App_UserId INT,
+    AppUserId INT,
     Review VARCHAR(2000),
     Ratings INT,
     Hours FLOAT,
     DateStarted DATE,
     DateFinished DATE,
     Status INT,
-    PRIMARY KEY (GameId, App_UserId),
+    PRIMARY KEY (GameId, AppUserId),
     CONSTRAINT FK_Reviews_Games
         FOREIGN KEY (GameId)
         REFERENCES Games(GameId),
-    CONSTRAINT FK_Reviews_App_Users
-        FOREIGN KEY (App_UserId)
-        REFERENCES App_Users(App_UserId)
+    CONSTRAINT FK_Reviews_AppUsers
+        FOREIGN KEY (AppUserId)
+        REFERENCES AppUsers(AppUserId)
         ON DELETE CASCADE
 );
 
@@ -61,7 +62,7 @@ CREATE TABLE Reviews (
 ------------------------------------------------------------------
 
 -- Insert 10 Users
-INSERT INTO App_Users (Email, First, Last, Birthday, Country, Age, Location) VALUES
+INSERT INTO AppUsers (Email, First, Last, Birthday, Country, Age, Location) VALUES
   ('alice@example.com', 'Alice', 'Smith', '1990-01-15', 'USA', 33, 'New York'),
   ('bob@example.com', 'Bob', 'Johnson', '1985-03-22', 'USA', 38, 'Los Angeles'),
   ('charlie@example.com', 'Charlie', 'Williams', '1992-07-10', 'USA', 31, 'Chicago'),
@@ -86,8 +87,8 @@ VALUES
   (8, '2017-09-26', 'Fortnite', 'Battle Royale,Shooter', 'A fast-paced battle royale game with building mechanics.', 'Survive against 99 other players.', 8.5, '20000', 'Fortnite', 'Epic Games', 'Epic Games', 'Unreal Engine 4', 'https://example.com/fortnite.jpg', 'Battle Royale,Competition', 'Shooter', 'battle royale,multiplayer,building', 'Multiplayer'),
   (9, '2016-05-24', 'Overwatch', 'Shooter,Team-based', 'A team-based shooter with unique heroes.', 'Heroes battle in dynamic, objective-based gameplay.', 8.8, '8000', 'Overwatch', 'Blizzard Entertainment', 'Blizzard Entertainment', 'Proprietary', 'https://example.com/overwatch.jpg', 'Teamwork,Action', 'Shooter', 'heroes,multiplayer,team', 'Multiplayer'),
   (10, '2020-12-10', 'Cyberpunk 2077', 'Action RPG,Open world', 'A futuristic RPG set in a sprawling metropolis.', 'V navigates the underbelly of a dystopian future.', 7.5, '5000', 'Cyberpunk', 'CD Projekt', 'CD Projekt Red', 'REDengine 4', 'https://example.com/cyberpunk2077.jpg', 'Futuristic,Dystopia', 'RPG', 'open world,cyberpunk,action', 'Single-player');
--- Insert 30 Reviews (composite key: GameId, App_UserId)
-INSERT INTO Reviews (GameId, App_UserId, Review, Ratings, Hours, DateStarted, DateFinished, Status) VALUES
+-- Insert 30 Reviews (composite key: GameId, AppUserId)
+INSERT INTO Reviews (GameId, AppUserId, Review, Ratings, Hours, DateStarted, DateFinished, Status) VALUES
   -- User 1
   (1, 1, 'Absolutely breathtaking open world.', 10, 40.5, '2022-01-01', '2022-02-01', 1),
   (4, 1, 'Immersive story and deep choices.', 9, 60.0, '2022-03-01', '2022-04-15', 1),

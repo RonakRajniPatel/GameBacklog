@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 import ronakrajnipatel.demo.model.Review;
 import ronakrajnipatel.demo.model.ReviewId;
 
+import java.util.List;
+
 @Repository
 public interface ReviewRepo extends JpaRepository<Review, ReviewId> {
-
 }

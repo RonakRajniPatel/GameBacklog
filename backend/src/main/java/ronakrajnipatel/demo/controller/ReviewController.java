@@ -18,9 +18,9 @@ public class ReviewController {
         return service.getReviews();
     }
 
-    @GetMapping("/{gameid}/{app_userid}")
-    public Review getProductById(@PathVariable int gameid, @PathVariable int app_userid) {
-        return service.getReviewById(gameid, app_userid);
+    @GetMapping("/{gameid}/{appuserid}")
+    public Review getProductById(@PathVariable int gameid, @PathVariable int appuserid) {
+        return service.getReviewById(gameid, appuserid);
     }
 
     @PostMapping("/review")
@@ -33,8 +33,8 @@ public class ReviewController {
         service.updateReview(review);
     }
 
-    @DeleteMapping("/{gameid}/{app_userid}")
-    public void deleteGame(@PathVariable int gameid, @PathVariable int app_userid) {
-        service.deleteReview(gameid, app_userid);
+    @DeleteMapping("/{gameid}/{appuserid}")
+    public void deleteGame(@PathVariable int gameid, @PathVariable int appuserid) {
+        service.deleteReview(gameid, appuserid);
     }
 }
