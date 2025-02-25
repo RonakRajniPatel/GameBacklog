@@ -16,6 +16,7 @@ import java.util.Date;
 public class Review {
     @Id
     private int gameid;
+
     @Id
     private int appuserid;
     private String review;
@@ -24,4 +25,9 @@ public class Review {
     private Date datestarted;
     private Date datefinished;
     private int status;
+
+    // This is the unidirectional relationship:
+    @ManyToOne
+    @JoinColumn(name = "gameid", insertable = false, updatable = false)
+    private Game game;       // So we can access game data via review.getGame()
 }
