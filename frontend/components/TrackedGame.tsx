@@ -10,16 +10,14 @@ export function TrackedGame(props: any) {
   console.log("Tracked Game");
   console.log(review);
   const game = {
-    title: "The Legend of Zelda: Breath of the Wild",
+    title: review.game.name,
     platform: "Nintendo Switch",
-    status: "Played",
-    hours: 136,
-    ratings: 5,
-    date_played: new Date("2017-03-03"),
-    review:
-      "The Legend of Zelda: Breath of the Wild is the first 3D open-world game in the Zelda series. Link can travel anywhere and be equipped with weapons and armor found throughout the world to grant him various bonuses. Unlike many games in the series, Breath of the Wild does not impose a specific order in which quests or dungeons must be completed. While the game still has environmental obstacles such as weather effects, inhospitable lands, or powerful enemies, many of them can be overcome using the right method. A lot of critics ranked Breath of the Wild as one of the best video games of all time.",
+    status: review.status,
+    hours: review.hours,
+    ratings: review.ratings,
+    date_played: review.datefinished.slice(0, 10),
+    review: review.review,
   };
-  const formattedDate = game.date_played.toISOString().split("T")[0];
   const [overflowLength, setOverflowLength] = React.useState(650);
 
   const [isExpanded, setIsExpanded] = React.useState(false);
@@ -75,7 +73,7 @@ export function TrackedGame(props: any) {
             <h3>Status: {game.status}</h3>
             <h3>Hours Played: {game.hours}</h3>
             <h3>Ratings: {game.ratings}</h3>
-            <h3>Date Played: {formattedDate}</h3>
+            <h3>Date Played: {game.date_played}</h3>
             <h3>Platform: {game.platform}</h3>
           </div>
         </div>
