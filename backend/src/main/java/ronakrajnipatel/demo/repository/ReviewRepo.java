@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ReviewRepo extends JpaRepository<Review, ReviewId> {
 
-    @Query("SELECT r FROM Review r WHERE r.appuserid = ?1")
+    @Query("SELECT r FROM Review r WHERE r.reviewId.appuserid = ?1")
     List<Review> findByappuserid(int appuserid);
 
 

@@ -11,14 +11,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@IdClass(ReviewId.class)
 @Table(name = "Reviews")
 public class Review {
-    @Id
-    private int gameid;
 
-    @Id
-    private int appuserid;
+    @EmbeddedId
+    private ReviewId reviewId;
     private String review;
     private int ratings;
     private float hours;
