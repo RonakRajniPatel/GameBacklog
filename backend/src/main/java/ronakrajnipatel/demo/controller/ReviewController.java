@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ronakrajnipatel.demo.model.Review;
 import ronakrajnipatel.demo.service.ReviewService;
+import ronakrajnipatel.demo.model.ReviewId;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class ReviewController {
     ReviewService service;
 
     @GetMapping("/reviews")   // maps HTTP GET requests for "/"
-    public List<Review> getGames() {
+    public List<Review> getReviews() {
         return service.getReviews();
     }
 
@@ -29,17 +30,19 @@ public class ReviewController {
     }
 
     @PostMapping("/review")
-    public void addGame(@RequestBody Review review) {
+    public void addReview(@RequestBody Review review) {
+        System.out.println("This is the controller call");
+        System.out.println(review);
         service.addReview(review);
     }
 
     @PutMapping("/review")
-    public void updateGame(@RequestBody Review review) {
+    public void updateReview(@RequestBody Review review) {
         service.updateReview(review);
     }
 
     @DeleteMapping("/{gameid}/{appuserid}")
-    public void deleteGame(@PathVariable int gameid, @PathVariable int appuserid) {
+    public void deleteReview(@PathVariable int gameid, @PathVariable int appuserid) {
         service.deleteReview(gameid, appuserid);
     }
 }

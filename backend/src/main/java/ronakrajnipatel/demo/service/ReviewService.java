@@ -26,6 +26,8 @@ public class ReviewService {
     }
 
     public void addReview(Review Review) {
+        System.out.println("This is the service call");
+        System.out.println(Review);
         repo.save(Review);
     }
 

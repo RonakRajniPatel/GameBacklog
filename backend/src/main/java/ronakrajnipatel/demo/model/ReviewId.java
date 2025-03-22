@@ -1,12 +1,16 @@
 package ronakrajnipatel.demo.model;
 
+import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Data;
 
 import java.io.Serializable;
 
 @NoArgsConstructor
 @EqualsAndHashCode
+@Embeddable
+@Data
 public class ReviewId implements Serializable {
     private int gameid;
     private int appuserid;
