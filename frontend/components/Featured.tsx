@@ -10,6 +10,8 @@ import {
 import * as React from "react";
 
 import Image from "next/image";
+
+import Link from "next/link";
 import HoverImage from "./ui/hoverimage";
 
 export function Featured() {
@@ -32,7 +34,9 @@ export function Featured() {
               <div className="p-1">
                 <Card className="bg-blue-500">
                   <CardTitle className="flex h-full items-center justify-center pt-2 text-center text-lg font-semibold">
-                    {item.title}
+                    <button className="text-inherit">
+                      <Link href={`/game/${item.gameid}`}>{item.title}</Link>
+                    </button>
                   </CardTitle>
                   <CardContent className="aspect-rectangle flex items-center justify-center p-3 pt-1 md:pt-5">
                     <div className="flex h-full w-full flex-row">

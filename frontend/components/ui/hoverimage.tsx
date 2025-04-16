@@ -7,6 +7,37 @@ interface HoverImageProps {
   alt: string;
   style: string;
 }
+async function submitGameStatus(payload: {
+  reviewId: {
+    gameid: number;
+    appuserid: number;
+  };
+  review: string;
+  ratings: number;
+  hours: number;
+  datestarted: string;
+  datefinished: string;
+  status: number;
+  game: {
+    gameid: number;
+  };
+}) {
+  try {
+    console.log("Payload:", JSON.stringify(payload));
+    const response = await fetch("http://localhost:8080/review/review", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.text();
+    console.log("Successfully posted:", data);
+  } catch (error) {
+    console.error("Error posting data:", error);
+  }
+}
 
 const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
   let hover_width = "";
@@ -24,12 +55,104 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
       <Image src={src} alt={alt} width={1920} height={1080} className="" />
       <div className="hidden md:block">
         <div
-          className={`hidden group-hover:inline absolute top-0 right-0 ${hover_width} h-full object-contain`}
+          className={`absolute right-0 top-0 hidden group-hover:inline ${hover_width} h-full object-contain`}
         >
-          <div className="bg-purple-500 h-1/4 opacity-85">Played</div>
-          <div className="bg-red-500 h-1/4 opacity-85">Drop</div>
-          <div className="bg-green-500 h-1/4 opacity-85">Want</div>
-          <div className="bg-blue-500 h-1/4 opacity-85">Still</div>
+          <div className="h-1/4 bg-purple-500 opacity-85">
+            <button
+              className="h-full w-full"
+              onClick={() =>
+                submitGameStatus({
+                  reviewId: {
+                    gameid: 2,
+                    appuserid: 1,
+                  },
+                  review: "Absolutely breathtaking open world.",
+                  ratings: 10,
+                  hours: 40.5,
+                  datestarted: "2022-01-01T05:00:00.000+00:00",
+                  datefinished: "2022-02-01T05:00:00.000+00:00",
+                  status: 1,
+                  game: {
+                    gameid: 2,
+                  },
+                })
+              }
+            >
+              Played
+            </button>
+          </div>
+          <div className="h-1/4 bg-red-500 opacity-85">
+            <button
+              className="h-full w-full"
+              onClick={() =>
+                submitGameStatus({
+                  reviewId: {
+                    gameid: 2,
+                    appuserid: 1,
+                  },
+                  review: "Absolutely breathtaking open world.",
+                  ratings: 10,
+                  hours: 40.5,
+                  datestarted: "2022-01-01T05:00:00.000+00:00",
+                  datefinished: "2022-02-01T05:00:00.000+00:00",
+                  status: 2,
+                  game: {
+                    gameid: 2,
+                  },
+                })
+              }
+            >
+              Drop
+            </button>
+          </div>
+          <div className="h-1/4 bg-green-500 opacity-85">
+            <button
+              className="h-full w-full"
+              onClick={() =>
+                submitGameStatus({
+                  reviewId: {
+                    gameid: 2,
+                    appuserid: 1,
+                  },
+                  review: "Absolutely breathtaking open world.",
+                  ratings: 10,
+                  hours: 40.5,
+                  datestarted: "2022-01-01T05:00:00.000+00:00",
+                  datefinished: "2022-02-01T05:00:00.000+00:00",
+                  status: 3,
+                  game: {
+                    gameid: 2,
+                  },
+                })
+              }
+            >
+              Played
+            </button>
+          </div>
+          <div className="h-1/4 bg-blue-500 opacity-85">
+            <button
+              className="h-full w-full"
+              onClick={() =>
+                submitGameStatus({
+                  reviewId: {
+                    gameid: 2,
+                    appuserid: 1,
+                  },
+                  review: "Absolutely breathtaking open world.",
+                  ratings: 10,
+                  hours: 40.5,
+                  datestarted: "2022-01-01T05:00:00.000+00:00",
+                  datefinished: "2022-02-01T05:00:00.000+00:00",
+                  status: 4,
+                  game: {
+                    gameid: 2,
+                  },
+                })
+              }
+            >
+              Played
+            </button>
+          </div>
         </div>
       </div>
     </div>
