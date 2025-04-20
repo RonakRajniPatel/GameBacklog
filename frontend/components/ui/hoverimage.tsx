@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 interface HoverImageProps {
   src: string;
@@ -40,6 +41,7 @@ async function submitGameStatus(payload: {
 }
 
 const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
+  const { toast } = useToast();
   let hover_width = "";
   let outer_constraints = "";
 
@@ -60,7 +62,7 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
           <div className="h-1/4 bg-purple-500 opacity-85">
             <button
               className="h-full w-full"
-              onClick={() =>
+              onClick={() => {
                 submitGameStatus({
                   reviewId: {
                     gameid: 2,
@@ -75,8 +77,12 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
                   game: {
                     gameid: 2,
                   },
-                })
-              }
+                }),
+                  toast({
+                    title: "Game Title Here",
+                    description: "Status set to Played",
+                  });
+              }}
             >
               Played
             </button>
@@ -84,7 +90,7 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
           <div className="h-1/4 bg-red-500 opacity-85">
             <button
               className="h-full w-full"
-              onClick={() =>
+              onClick={() => {
                 submitGameStatus({
                   reviewId: {
                     gameid: 2,
@@ -95,12 +101,16 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
                   hours: 40.5,
                   datestarted: "2022-01-01T05:00:00.000+00:00",
                   datefinished: "2022-02-01T05:00:00.000+00:00",
-                  status: 2,
+                  status: 1,
                   game: {
                     gameid: 2,
                   },
-                })
-              }
+                }),
+                  toast({
+                    title: "Game Title Here",
+                    description: "Status set to Dropped",
+                  });
+              }}
             >
               Drop
             </button>
@@ -108,7 +118,7 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
           <div className="h-1/4 bg-green-500 opacity-85">
             <button
               className="h-full w-full"
-              onClick={() =>
+              onClick={() => {
                 submitGameStatus({
                   reviewId: {
                     gameid: 2,
@@ -119,20 +129,24 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
                   hours: 40.5,
                   datestarted: "2022-01-01T05:00:00.000+00:00",
                   datefinished: "2022-02-01T05:00:00.000+00:00",
-                  status: 3,
+                  status: 1,
                   game: {
                     gameid: 2,
                   },
-                })
-              }
+                }),
+                  toast({
+                    title: "Game Title Here",
+                    description: "Status set to Want to Play",
+                  });
+              }}
             >
-              Played
+              Want to Play
             </button>
           </div>
           <div className="h-1/4 bg-blue-500 opacity-85">
             <button
               className="h-full w-full"
-              onClick={() =>
+              onClick={() => {
                 submitGameStatus({
                   reviewId: {
                     gameid: 2,
@@ -143,14 +157,18 @@ const HoverImage: React.FC<HoverImageProps> = ({ src, alt, style }) => {
                   hours: 40.5,
                   datestarted: "2022-01-01T05:00:00.000+00:00",
                   datefinished: "2022-02-01T05:00:00.000+00:00",
-                  status: 4,
+                  status: 1,
                   game: {
                     gameid: 2,
                   },
-                })
-              }
+                }),
+                  toast({
+                    title: "Game Title Here",
+                    description: "Status set to Playing",
+                  });
+              }}
             >
-              Played
+              Playing
             </button>
           </div>
         </div>
