@@ -31,8 +31,6 @@ public class ReviewController {
 
     @PostMapping("/review")
     public void addReview(@RequestBody Review review) {
-        System.out.println("This is the controller call");
-        System.out.println(review);
         service.addReview(review);
     }
 
