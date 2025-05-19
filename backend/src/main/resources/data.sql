@@ -43,11 +43,11 @@ CREATE TABLE Reviews (
     AppUserId INT,
     Review VARCHAR(2000),
     Ratings INT,
-    Hours FLOAT,
+    Hours FLOAT, PRIMARY KEY (GameId, AppUserId),
     DateStarted DATE,
     DateFinished DATE,
-    Status INT,
-    PRIMARY KEY (GameId, AppUserId),
+    Status VARCHAR(20),
+
     CONSTRAINT FK_Reviews_Games
         FOREIGN KEY (GameId)
         REFERENCES Games(GameId),
@@ -90,48 +90,48 @@ VALUES
 -- Insert 30 Reviews (composite key: GameId, AppUserId)
 INSERT INTO Reviews (GameId, AppUserId, Review, Ratings, Hours, DateStarted, DateFinished, Status) VALUES
   -- User 1
-  (1, 1, 'Absolutely breathtaking open world.', 10, 40.5, '2022-01-01', '2022-02-01', 1),
-  (4, 1, 'Immersive story and deep choices.', 9, 60.0, '2022-03-01', '2022-04-15', 1),
-  (7, 1, 'Endless creativity, fun multiplayer experience.', 8, 120.0, '2022-05-01', '2022-05-20', 1),
+  (1, 1, 'Absolutely breathtaking open world.', 10, 40.5, '2022-01-01', '2022-02-01', 'Played'),
+  (4, 1, 'Immersive story and deep choices.', 9, 60.0, '2022-03-01', '2022-04-15', 'Played'),
+  (7, 1, 'Endless creativity, fun multiplayer experience.', 8, 120.0, '2022-05-01', '2022-05-20', 'Played'),
 
   -- User 2
-  (2, 2, 'Emotional and powerful, a must-play.', 10, 30.0, '2022-01-10', '2022-02-05', 1),
-  (3, 2, 'An epic narrative with rich details.', 9, 50.0, '2022-02-10', '2022-03-20', 1),
-  (5, 2, 'Fun and charming, classic Mario magic.', 9, 20.0, '2022-04-01', '2022-04-15', 1),
+  (2, 2, 'Emotional and powerful, a must-play.', 10, 30.0, '2022-01-10', '2022-02-05', 'Played'),
+  (3, 2, 'An epic narrative with rich details.', 9, 50.0, '2022-02-10', '2022-03-20', 'Played'),
+  (5, 2, 'Fun and charming, classic Mario magic.', 9, 20.0, '2022-04-01', '2022-04-15', 'Played'),
 
   -- User 3
-  (1, 3, 'Stunning visuals and a living world.', 10, 35.0, '2022-06-01', '2022-07-01', 1),
-  (8, 3, 'Intense battles and creative building mechanics.', 8, 25.0, '2022-07-05', '2022-07-20', 1),
+  (1, 3, 'Stunning visuals and a living world.', 10, 35.0, '2022-06-01', '2022-07-01', 'Played'),
+  (8, 3, 'Intense battles and creative building mechanics.', 8, 25.0, '2022-07-05', '2022-07-20', 'Played'),
 
   -- User 4
-  (6, 4, 'Classic shooter experience with great multiplayer.', 9, 40.0, '2022-08-01', '2022-08-20', 1),
-  (9, 4, 'Team-based gameplay that really stands out.', 8, 30.0, '2022-09-01', '2022-09-15', 1),
-  (10, 4, 'Ambitious but buggy launch.', 6, 45.0, '2022-10-01', '2022-10-20', 1),
+  (6, 4, 'Classic shooter experience with great multiplayer.', 9, 40.0, '2022-08-01', '2022-08-20', 'Played'),
+  (9, 4, 'Team-based gameplay that really stands out.', 8, 30.0, '2022-09-01', '2022-09-15', 'Played'),
+  (10, 4, 'Ambitious but buggy launch.', 6, 45.0, '2022-10-01', '2022-10-20', 'Played'),
 
   -- User 5
-  (4, 5, 'Deep narrative and compelling characters.', 10, 55.0, '2022-11-01', '2022-12-01', 1),
-  (7, 5, 'Great creative outlet with endless possibilities.', 9, 80.0, '2023-01-01', '2023-01-25', 1),
+  (4, 5, 'Deep narrative and compelling characters.', 10, 55.0, '2022-11-01', '2022-12-01', 'Played'),
+  (7, 5, 'Great creative outlet with endless possibilities.', 9, 80.0, '2023-01-01', '2023-01-25', 'Played'),
 
   -- User 6
-  (2, 6, 'A refreshing take on mythological action.', 9, 32.0, '2023-02-01', '2023-02-20', 1),
-  (5, 6, 'Mario never disappoints.', 9, 18.0, '2023-03-01', '2023-03-15', 1),
-  (9, 6, 'Engaging team play and dynamic heroes.', 8, 28.0, '2023-04-01', '2023-04-15', 1),
+  (2, 6, 'A refreshing take on mythological action.', 9, 32.0, '2023-02-01', '2023-02-20', 'Played'),
+  (5, 6, 'Mario never disappoints.', 9, 18.0, '2023-03-01', '2023-03-15', 'Played'),
+  (9, 6, 'Engaging team play and dynamic heroes.', 8, 28.0, '2023-04-01', '2023-04-15', 'Played'),
 
   -- User 7
-  (3, 7, 'A gripping western tale.', 10, 70.0, '2023-05-01', '2023-06-01', 1),
-  (8, 7, 'Fast-paced and competitive.', 8, 22.0, '2023-06-05', '2023-06-20', 1),
+  (3, 7, 'A gripping western tale.', 10, 70.0, '2023-05-01', '2023-06-01', 'Played'),
+  (8, 7, 'Fast-paced and competitive.', 8, 22.0, '2023-06-05', '2023-06-20', 'Played'),
 
   -- User 8
-  (1, 8, 'A timeless adventure.', 10, 40.0, '2023-07-01', '2023-07-30', 1),
-  (4, 8, 'The Witcher at its finest.', 9, 60.0, '2023-08-01', '2023-08-30', 1),
-  (10, 8, 'Could have been better with more polish.', 7, 50.0, '2023-09-01', '2023-09-25', 1),
+  (1, 8, 'A timeless adventure.', 10, 40.0, '2023-07-01', '2023-07-30', 'Played'),
+  (4, 8, 'The Witcher at its finest.', 9, 60.0, '2023-08-01', '2023-08-30', 'Played'),
+  (10, 8, 'Could have been better with more polish.', 7, 50.0, '2023-09-01', '2023-09-25', 'Played'),
 
   -- User 9
-  (6, 9, 'Classic sci-fi shooter action.', 9, 35.0, '2023-10-01', '2023-10-20', 1),
-  (7, 9, 'Innovative sandbox creativity.', 9, 100.0, '2023-11-01', '2023-11-30', 1),
+  (6, 9, 'Classic sci-fi shooter action.', 9, 35.0, '2023-10-01', '2023-10-20', 'Played'),
+  (7, 9, 'Innovative sandbox creativity.', 9, 100.0, '2023-11-01', '2023-11-30', 'Played'),
 
   -- User 10
-  (2, 10, 'Immersive action and story.', 10, 28.0, '2023-12-01', '2023-12-20', 1),
-  (5, 10, 'Fun, vibrant, and full of surprises.', 9, 22.0, '2024-01-01', '2024-01-15', 1),
-  (8, 10, 'A wild and ever-changing battlefield.', 8, 30.0, '2024-02-01', '2024-02-20', 1),
-  (10, 10, 'Interesting world but lacking polish.', 7, 42.0, '2024-03-01', '2024-03-15', 1);
+  (2, 10, 'Immersive action and story.', 10, 28.0, '2023-12-01', '2023-12-20', 'Played'),
+  (5, 10, 'Fun, vibrant, and full of surprises.', 9, 22.0, '2024-01-01', '2024-01-15', 'Played'),
+  (8, 10, 'A wild and ever-changing battlefield.', 8, 30.0, '2024-02-01', '2024-02-20', 'Played'),
+  (10, 10, 'Interesting world but lacking polish.', 7, 42.0, '2024-03-01', '2024-03-15', 'Played');

@@ -21,7 +21,7 @@ public class Review {
     private float hours;
     private Date datestarted;
     private Date datefinished;
-    private int status;
+    private String status;
 
     // This is the unidirectional relationship:
     @MapsId("gameid")
