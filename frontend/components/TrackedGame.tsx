@@ -83,10 +83,40 @@ export function TrackedGame(props: any) {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    const payload = {
+      reviewId: {
+        gameid: review.reviewId.gameId,
+        appuserid: review.reviewId.appUserId,
+      },
+      review: values.review,
+      ratings: values.rating,
+      hours: values.hours,
+      datestarted: "2022-01-01T05:00:00.000+00:00",
+      datefinished: "2022-02-01T05:00:00.000+00:00",
+      status: values.status,
+      game: {
+        gameid: review.reviewId.gameId,
+      },
+    };
+    try {
+      console.log("Payload:", JSON.stringify(payload));
+      const response = await fetch("http://localhost:8080/review/review", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.text();
+      console.log("Successfully posted:", data);
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
+    // No need to manually close the drawer, handled by DrawerClose on submit button
   }
 
   const [overflowLength, setOverflowLength] = React.useState(650);
@@ -290,7 +320,9 @@ export function TrackedGame(props: any) {
                 )}
               />
 
-              <Button type="submit">Submit</Button>
+              <DrawerClose asChild>
+                <Button type="submit">Submit</Button>
+              </DrawerClose>
             </form>
           </Form>
           <DrawerClose asChild>
